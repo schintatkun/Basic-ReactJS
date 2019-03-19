@@ -14,28 +14,44 @@
     <div id="root"></div>
     <script type="text/babel">
         const Lake = ({name}) => <h1>{name}</h1>;
+        const Ski = ({name}) => <h1>{name}</h1>;
+
+        // class App extends React.Component {
+        //     state = {
+        //         loggedIn: false
+        //     }
+        //     logIn = () => this.setState({loggedIn: true});
+        //     logOut = () => this.setState({loggedIn: false});
+        //     render() {
+        //         return (
+        //         <div>
+        //             <button onClick={this.logIn}>Log In</button>
+        //             <button onClick={this.logOut}>Log Out</button>
+        //             <div>User is {this.state.loggedIn ? "logged in": "NOT logged in"}.</div>
+        //             <Lake name = "Lake Tahoe" />
+        //             <Lake name = "Lake Washington" />
+        //             <Lake name = "Lake Union" />
+        //         </div>
+        //        )
+        //     };
+        // }
         
-        class App extends React.Component {
-            state = {
-                loggedIn: false
-            }
-            logIn = () => this.setState({loggedIn: true})
-            logOut = () => this.setState({loggedIn: false})
-            render() {
-                return (
-                <div>
-                    <button onClick={this.logIn}>Log In</button>
-                    <button onClick={this.logOut}>Log Out</button>
-                    <div>User is {this.state.loggedIn ? "logged in": "NOT logged in"}.</div>
-                    <Lake name = "Lake Tahoe" />
-                    <Lake name = "Lake Washington" />
-                    <Lake name = "Lake Union" />
-                </div>   
-               )
-            }
-        }
+        const AnimeList = [
+            "Gundam",
+            "Dargon Ball",
+            "Naruto",
+            "Seven Deadly Sin"
+        ]
+        
+        const App = ({animes}) => (
+            <ul>
+                {animes.map((anime, i)=>
+                    <li key={i}>{anime}</li>    
+                )}
+            </ul>
+        )
         ReactDOM.render(
-            <App />,           
+            <App animes={AnimeList} />,           
             document.getElementById("root")
         );
     </script>
