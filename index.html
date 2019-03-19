@@ -36,20 +36,36 @@
         //     };
         // }
         
-        const AnimeList = [
-            "Gundam",
-            "Dargon Ball",
-            "Naruto",
-            "Seven Deadly Sin"
-        ]
+        //render components from a list 
+
+        // const AnimeList = [
+        //     "Gundam",
+        //     "Dargon Ball",
+        //     "Naruto",
+        //     "Seven Deadly Sin"
+        // ]
         
+        // const App = ({animes}) => (
+        //     <ul>
+        //         {animes.map((anime, i)=>
+        //             <li key={i}>{anime}</li>    
+        //         )}
+        //     </ul>
+        // )
+
+        const AnimeList = [
+            {id: 1, name:"Gundam", des:"pilot a robot"},
+            {id: 2, name:"Naruto", des:"It is about Ninja"},
+            {id: 3, name:"Dragon Ball", des:"Goku and his friends"},
+        ]
         const App = ({animes}) => (
             <ul>
-                {animes.map((anime, i)=>
-                    <li key={i}>{anime}</li>    
+                {animes.map(anime =>
+                    <li key={anime.id}>Title: {anime.name} | Description : {anime.des}</li>
                 )}
             </ul>
-        )
+            )
+
         ReactDOM.render(
             <App animes={AnimeList} />,           
             document.getElementById("root")
